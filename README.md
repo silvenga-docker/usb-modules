@@ -9,7 +9,7 @@ docker run -it --rm \
     -v /usr/src:/usr/src:ro \
     -v /lib/modules:/lib/modules:ro \
     --privileged \
-    test
+    ghcr.io/silvenga-docker/usbip:master
 ```
 
 The following paths must be mounted from the host (to build against the correct symbols).
