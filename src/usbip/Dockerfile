@@ -1,7 +1,6 @@
 FROM ubuntu:bionic
 
 LABEL maintainer "Mark Lopez <m@silvenga.com>"
-LABEL org.opencontainers.image.source https://github.com/silvenga-docker/usbip
 
 # Note that newer versions rely on kernel internal function.
 ARG KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.236.tar.xz
