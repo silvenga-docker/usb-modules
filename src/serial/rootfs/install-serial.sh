@@ -37,7 +37,7 @@ cleanup()
   echo "Done! Bye!"
   exit
 }
-trap cleanup 1 2 3 6
+trap cleanup 1 2 3 6 15
 
 while true
 do
