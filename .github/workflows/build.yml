@@ -10,8 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
+    strategy:
+      matrix:
+        module:
+          - serial
+          - usbip
     env:
-      IMAGE_NAME: ghcr.io/silvenga-docker/usbip
+      IMAGE_NAME: ghcr.io/silvenga-docker/usb-modules/${{ matrix.module }}
     steps:
       - uses: actions/checkout@v3
       - uses: docker/setup-buildx-action@v2
@@ -33,7 +38,7 @@ jobs:
         id: build
         with:
           file: Dockerfile
-          context: .
+          context: src/${{ matrix.module }}
           push: ${{ github.event_name != 'pull_request' }}
           cache-from: ${{ github.actor != 'dependabot[bot]' && format('type=registry,ref={0}:cache', env.IMAGE_NAME) || ''}}
           cache-to: ${{ github.actor != 'dependabot[bot]' && format('type=registry,ref={0}:cache,mode=max', env.IMAGE_NAME) || ''}}

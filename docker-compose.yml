@@ -1,9 +1,0 @@
-version: "2.1"
-services:
-  tor:
-    build: .
-    ports:
-      - 443:443
-      - 80:80
-      - 127.0.0.1:9051:9051
-    command: tor --DataDirectory /home/tor --User tor

@@ -1,6 +1,16 @@
-# usbip
+# usb-modules
 
 A docker image to build and install the usbip kernel module (and friends). Some standard kernels (looking at you, Azure kernel) do not include USB kernel modules. While, yes, you can install the generic mainline kernel... there's downsides to that...
+
+Currently, this repo provides the following modules:
+
+- `ghcr.io/silvenga-docker/usb-modules/usbip`:
+    - `usbip-core`
+    - `vhci-hcd`
+- `ghcr.io/silvenga-docker/usb-modules/serial`:
+    - `usbserial`
+    - `usb-serial-simple`
+    - `ftdi_sio`
 
 ## Setup
 
@@ -9,7 +19,7 @@ docker run -it --rm \
     -v /usr/src:/usr/src:ro \
     -v /lib/modules:/lib/modules:ro \
     --privileged \
-    ghcr.io/silvenga-docker/usbip:master
+    ghcr.io/silvenga-docker/usb-modules/usbip:master
 ```
 
 The following paths must be mounted from the host (to build against the correct symbols).

@@ -21,4 +21,4 @@ RUN set -xe \
 
 COPY rootfs/ /
 
-CMD ["/bin/bash", "/install.sh"]
+CMD ["/bin/bash", "/install-usbip"]
